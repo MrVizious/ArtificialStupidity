@@ -1,7 +1,7 @@
 # TODO Document
 In this document I will be adding whatever I know I have to do, and I will try to categorize it.
 
-## **Urgent**
+#### Programming Quality
 - [ ] GameController Singleton
 - [ ] Normal ground Prefab
 
@@ -17,8 +17,8 @@ In this document I will be adding whatever I know I have to do, and I will try t
 - [x] Change input recording to ~~structs or~~ classes instead of strings
 
 #### Input Recreating
-- [ ] Jump
-- [ ] Horizontal Movement
+- [x] Jump
+- [x] Horizontal Movement
 - https://docs.microsoft.com/en-us/dotnet/api/system.io.file?redirectedfrom=MSDN&view=netframework-4.7.2
 
 #### Gameplay Mechanics
@@ -39,5 +39,7 @@ In this document I will be adding whatever I know I have to do, and I will try t
 
 
 #### Backlog / Ideas
-- [ ] Two characters with different colors
-- [ ] Maximum number of elements active or of the same color at the same time?
+- [ ] Characters with different colors
+- [ ] Elements of different colors
+- [ ] Maximum number of elements active ~~or of the same color~~ at the same time?
+- [ ] Levels with many characters (Lemmings' style)

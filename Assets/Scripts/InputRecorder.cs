@@ -10,7 +10,10 @@ public class InputRecorder : MonoBehaviour
     private string path;
     private float startTime;
     private List<Action> actions;
+    //This is used to check if a new axis input should be recorded or not
     private float lastAxis;
+    //This allows to create a named file instead of a non-specific name
+    public string fileName;
 
     //Custom class to keep action data
     private class Action{
@@ -32,10 +35,10 @@ public class InputRecorder : MonoBehaviour
         public string toString(){
             string returnString = "";
             returnString += name;
-            returnString += ", ";
+            returnString += " ";
             returnString += executionTime;
             if(name.Equals("Run")){
-                returnString += ", ";
+                returnString += " ";
                 returnString += numericData;
             }
             return returnString;
@@ -90,8 +93,11 @@ public class InputRecorder : MonoBehaviour
 
     private void SaveActionsLog(){
         if(debugSaving) Debug.Log("Saving ACTUAL data!");
-
-        path = Application.dataPath + "/InputLogs/" + DateTime.Now.ToString("dd_MM_yyyy__HH_mm_ss") + ".txt";
+        if(fileName.Length<1){
+            path = Application.dataPath + "/InputLogs/" + DateTime.Now.ToString("dd_MM_yyyy__HH_mm_ss") + ".txt";
+        } else {
+            path = Application.dataPath + "/InputLogs/" + fileName + ".txt";
+        }
         if(debugPath) Debug.Log("Saving ACTUAL data at: " + path);
 
         if (!File.Exists(path)){
@@ -100,6 +106,10 @@ public class InputRecorder : MonoBehaviour
                 //Write in a separate line every single action as "Action\ntime", and empty the list after
                 foreach(Action action in actions){
                     sw.WriteLine(action.toString());
+                    if(debugArgumentSplit){
+                        string[] words = action.toString().Split(' ');
+                        for(int i=0; i<words.Length; i++) Debug.Log(i + ": " + words[i]);
+                    }
                 }
                 actions.Clear();
             }
@@ -119,6 +129,7 @@ public class InputRecorder : MonoBehaviour
      public bool debugCreateFile;
      public bool debugRecording;
      public bool debugSaving;
+     public bool debugArgumentSplit;
 
 
 

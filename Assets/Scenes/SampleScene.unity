@@ -339,8 +339,10 @@ GameObject:
   - component: {fileID: 366224363}
   - component: {fileID: 366224362}
   - component: {fileID: 366224366}
-  - component: {fileID: 366224367}
   - component: {fileID: 366224368}
+  - component: {fileID: 366224367}
+  - component: {fileID: 366224369}
+  - component: {fileID: 366224370}
   m_Layer: 0
   m_Name: BlueStickMan
   m_TagString: Player
@@ -456,7 +458,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366224361}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -482,7 +484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366224361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e888a6c1ab3ea14183e7d05cecf82ca, type: 3}
   m_Name: 
@@ -490,7 +492,7 @@ MonoBehaviour:
   speed: 100
   max_x_Speed: 4.5
   max_y_Speed: 12
-  jumpForce: 180
+  jumpForce: 400
   grounded: 0
 --- !u!114 &366224368
 MonoBehaviour:
@@ -499,7 +501,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366224361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a93d36e1331f8644a5961512045a991, type: 3}
   m_Name: 
@@ -507,6 +509,44 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   jumpButtonPressed: 0
+--- !u!114 &366224369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366224361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0e2f69b087439419c8317a027d92b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  max_x_Speed: 4.5
+  max_y_Speed: 12
+  jumpForce: 400
+  grounded: 0
+  fileName: SimpleRoutine
+  debugPath: 1
+  debugFileOpened: 1
+--- !u!114 &366224370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366224361}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e265e12d7e292db4cbf6f33a56245ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: SimpleRoutine
+  debugPath: 0
+  debugCreateFile: 0
+  debugRecording: 1
+  debugSaving: 1
+  debugArgumentSplit: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,53 +792,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4064381, y: 0.7783706}
   m_EdgeRadius: 0
---- !u!1 &1454201575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1454201577}
-  - component: {fileID: 1454201576}
-  m_Layer: 0
-  m_Name: InputRecorderObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1454201576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454201575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e265e12d7e292db4cbf6f33a56245ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugPath: 1
-  debugCreateFile: 0
-  debugRecording: 1
-  debugSaving: 1
---- !u!4 &1454201577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454201575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4092361, y: 0.68110895, z: 3682.3398}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876699435
 GameObject:
   m_ObjectHideFlags: 0
