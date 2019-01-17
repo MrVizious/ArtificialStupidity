@@ -23,29 +23,38 @@ public class StickmanController : MonoBehaviour
 
 
     void Update(){
-        if(Input.GetButtonDown("Jump") && grounded){
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(new Vector2(0, jumpForce));
-        }
+        Jump();
     }
 
     void FixedUpdate(){
+        //Sets the horizontal speed to that given by the axis input and clamps both axis of velocity according to maximum speeds allowed
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x + Input.GetAxis("Horizontal") * speed * Time.deltaTime, -max_x_Speed, max_x_Speed), Mathf.Clamp(rb.velocity.y, -max_y_Speed, max_y_Speed));
     }
 
     void OnCollisionStay2D(Collision2D collisionInfo)
     {
+        //Ground check
         if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("Player")) grounded = true;
         //Debug.Log("Collider de objeto: " + collisionInfo.otherCollider.gameObject.tag + " contra collider de tag: " + collisionInfo.gameObject.tag);
     }
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
+        //Ground check
         if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("Player")) grounded = true;
         //Debug.Log("Collider de objeto: " + collisionInfo.otherCollider.gameObject.tag + " contra collider de tag: " + collisionInfo.gameObject.tag);
     }
 
     void OnCollisionExit2D(Collision2D collisionInfo){
+        //Ground check
         if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("Player")) grounded = false;
+    }
+
+    //Checks if the input for jump is pressed, and makes the character jump
+    private void Jump(){
+        if(Input.GetButtonDown("Jump") && grounded){
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(new Vector2(0, jumpForce));
+        }
     }
 }

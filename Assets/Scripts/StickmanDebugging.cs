@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class Debugging : MonoBehaviour
+public class StickmanDebugging : MonoBehaviour
 {
 
     public bool xSpeed;
@@ -16,12 +16,17 @@ public class Debugging : MonoBehaviour
     void Start(){
         rb = GetComponent<Rigidbody2D>();
     }
-
     // Update is called once per frame
+
     void Update()
     {
+        //Debug of x speed
         if(xSpeed) Debug.Log("x speed: " + rb.velocity.x);
+
+        //Debug of y speed
         if(ySpeed) Debug.Log("y speed: " + rb.velocity.y);
+
+        //Debug of jump button pressed
         if(jumpButtonPressed && Input.GetButtonDown("Jump"))Debug.Log("Jump Button Pressed");
     }
 }
