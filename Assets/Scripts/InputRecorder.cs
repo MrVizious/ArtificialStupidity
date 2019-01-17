@@ -9,16 +9,46 @@ public class InputRecorder : MonoBehaviour
 
     private string path;
     private float startTime;
-    private List<Tuple<string, float>> actions;
+    private List<Action> actions;
+    private float lastAxis;
 
+    //Custom class to keep action data
+    private class Action{
+        public string name;
+        public float executionTime;
+        public float numericData;
 
+        public Action(string newName, float newExecutionTime, float newNumericData){
+            name = newName;
+            executionTime = newExecutionTime;
+            numericData = newNumericData;
+        }
+
+        public Action(string newName, float newExecutionTime){
+            name = newName;
+            executionTime = newExecutionTime;
+        }
+
+        public string toString(){
+            string returnString = "";
+            returnString += name;
+            returnString += ", ";
+            returnString += executionTime;
+            if(name.Equals("Run")){
+                returnString += ", ";
+                returnString += numericData;
+            }
+            return returnString;
+        }
+    }
 
     void Start(){
         //Empty List of actions and times
-        actions = new List<Tuple<string, float>>();
+        actions = new List<Action>();
         //startTime begins with a negative value until the start button is pressed
         startTime = -1f;
-
+        //lastAxis begins as 0f so any change on the horizontal axis is recorded
+        lastAxis = 0f;
         //Debugger of the created path
         if(debugPath){
             //Path  of the file created using the current time as name
@@ -41,11 +71,19 @@ public class InputRecorder : MonoBehaviour
                 SaveActionsLog();
             }
         }
-        if(startTime>=0){
-            //TODO Start to record the inputs with the relative time at which they were performed
-            if(Input.GetButtonDown("Jump")){
-                actions.Add(new Tuple<string, float>("Jump", Time.time-startTime));
-            }
+        //If the recording has begun, record the inputs
+        if(startTime>=0) RecordInputs();
+    }
+
+
+    private void RecordInputs(){
+        //Records the Jump action
+        if(Input.GetButtonDown("Jump")) actions.Add(new Action("Jump", Time.time-startTime));
+        //Records the Horizontal axis only if it is different from the last one
+        float axis = Input.GetAxis("Horizontal");
+        if(axis != lastAxis){
+            actions.Add(new Action("Run", Time.time-startTime, axis));
+            lastAxis = axis;
         }
     }
 
@@ -60,16 +98,13 @@ public class InputRecorder : MonoBehaviour
             // Create a file to write to
             using (StreamWriter sw = File.CreateText(path)){
                 //Write in a separate line every single action as "Action\ntime", and empty the list after
-                foreach(Tuple<string, float> action in actions){
-                    sw.WriteLine(action.Item1);
-                    sw.WriteLine(action.Item2);
+                foreach(Action action in actions){
+                    sw.WriteLine(action.toString());
                 }
                 actions.Clear();
             }
         }
     }
-
-    //TODO Implement reading in another script using StreamReader https://docs.microsoft.com/en-us/dotnet/api/system.io.file?redirectedfrom=MSDN&view=netframework-4.7.2
 
 
 

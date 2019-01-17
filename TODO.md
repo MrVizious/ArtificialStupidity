@@ -13,11 +13,13 @@ In this document I will be adding whatever I know I have to do, and I will try t
 
 #### Input Recording
 - [x] Jump
-- [ ] Horizontal axis
+- [x] Horizontal axis
+- [x] Change input recording to ~~structs or~~ classes instead of strings
 
 #### Input Recreating
 - [ ] Jump
 - [ ] Horizontal Movement
+- https://docs.microsoft.com/en-us/dotnet/api/system.io.file?redirectedfrom=MSDN&view=netframework-4.7.2
 
 #### Gameplay Mechanics
 - [ ] Spawning
