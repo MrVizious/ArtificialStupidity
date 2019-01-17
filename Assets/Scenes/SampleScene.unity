@@ -212,10 +212,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64164397}
   m_LocalRotation: {x: -0, y: -0, z: 0.27124727, w: 0.96250975}
-  m_LocalPosition: {x: 11.270779, y: 3.2915215, z: 0}
+  m_LocalPosition: {x: 14.92, y: 5.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 532751483}
+  m_Children: []
   m_Father: {fileID: 1876699438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,6 +322,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1876699438}
+  - {fileID: 532751483}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -443,7 +443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366224361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.29, y: 1.11, z: 0}
+  m_LocalPosition: {x: -1.065, y: 0.756, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1223641019}
@@ -526,7 +526,7 @@ MonoBehaviour:
   max_y_Speed: 12
   jumpForce: 400
   grounded: 0
-  fileName: SimpleRoutine
+  fileName: SecondLevelRoutine
   debugPath: 1
   debugFileOpened: 1
 --- !u!114 &366224370
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e265e12d7e292db4cbf6f33a56245ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: SimpleRoutine
+  fileName: SecondLevelRoutine
   debugPath: 0
   debugCreateFile: 0
   debugRecording: 1
@@ -640,6 +640,7 @@ GameObject:
   - component: {fileID: 532751483}
   - component: {fileID: 532751485}
   - component: {fileID: 532751484}
+  - component: {fileID: 532751486}
   m_Layer: 0
   m_Name: platform-png-1 (1)
   m_TagString: Ground
@@ -654,13 +655,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532751482}
-  m_LocalRotation: {x: -0, y: -0, z: -0.27124727, w: 0.96250975}
-  m_LocalPosition: {x: -3.771, y: 1.001, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.52, y: -1.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 64164400}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -31.477001}
+  m_Father: {fileID: 142941339}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &532751484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -735,6 +736,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &532751486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532751482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236b1422270bfb144bc050ce67609469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyName: space
+  startEnabled: 0
+  debugKeyPressed: 1
+  debugActivation: 1
 --- !u!1 &1223641018
 GameObject:
   m_ObjectHideFlags: 0

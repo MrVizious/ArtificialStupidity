@@ -3,6 +3,7 @@ In this document I will be adding whatever I know I have to do, and I will try t
 
 #### Programming Quality
 - [ ] GameController Singleton
+- [ ] LevelController Singleton per level
 - [ ] Normal ground Prefab
 
 #### Movement System
@@ -24,10 +25,13 @@ In this document I will be adding whatever I know I have to do, and I will try t
 #### Gameplay Mechanics
 - [ ] Spawning
 - [ ] Despawning / Getting to the door
-- [ ] Activate element
-- [ ] Deactivate element
+- [x] Activate element
+- [x] Deactivate element
+- [ ] Require two buttons to be pressed when activating (i.e. W for selecting the platform and SPACE for activating it) https://answers.unity.com/questions/553618/how-can-i-use-multiple-getbuttondown-keys-simultan.html
 
 #### Gameplay Elements
+- [ ] Enter gates
+- [ ] Exit gates
 - [ ] Platform that activates and deactivates
 - [ ] Platform that moves in a certain pattern (See native Unity behaviour for this) when activated
 
@@ -40,6 +44,8 @@ In this document I will be adding whatever I know I have to do, and I will try t
 
 #### Backlog / Ideas
 - [ ] Characters with different colors
-- [ ] Elements of different colors
+- [ ] Elements of different colors (specific doors, platforms and so on)
 - [ ] Maximum number of elements active ~~or of the same color~~ at the same time?
 - [ ] Levels with many characters (Lemmings' style)
+- [ ] Difficult combinations of buttons to press (Twister-style)?
+- [ ] Elements that activate and deactivate any time any other this is activated or deactivated
