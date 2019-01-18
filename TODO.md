@@ -4,7 +4,8 @@ In this document I will be adding whatever I know I have to do, and I will try t
 #### Programming Quality
 - [ ] GameController Singleton
 - [ ] LevelController Singleton per level
-- [ ] Normal ground Prefab
+- [x] Normal ground Prefab
+- [ ] Sonarqube integration for better code quality
 
 #### Movement System
 - [x] Jump
