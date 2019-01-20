@@ -6,13 +6,16 @@ In this document I will be adding whatever I know I have to do, and I will try t
 - [ ] LevelController Singleton per level
 - [ ] Normal ground Prefab **Has to be improved now**
 - [ ] Sonarqube integration for better code quality
+
+#### Gameplay Quality
 - [x] Create a way for platforms not to activate if the character is close to hitting them, but allow to deactivate
+- [ ] Menu / UI
 
 #### Movement System
 - [x] Jump
 - [x] Horizontal Movement
 - [x] Ground check
-- [ ] Check why the RigidBody feels so slippery
+- [ ] Check why the RigidBody2D feels so slippery
 
 #### Input Recording
 - [x] Jump
@@ -33,8 +36,9 @@ In this document I will be adding whatever I know I have to do, and I will try t
 #### Gameplay Elements
 - [ ] Enter gates
 - [ ] Exit gates
-- [ ] Platform that activates and deactivates
+- [x] Platform that activates and deactivates
 - [ ] Platform that moves in a certain pattern (See native Unity behaviour for this) when activated
+- [ ] Platform that moves one direction when pressing a button and moves the other when pressing other
 
 #### Levels
 - [ ] Automatic win level
@@ -47,6 +51,6 @@ In this document I will be adding whatever I know I have to do, and I will try t
 - [ ] Characters with different colors
 - [ ] Elements of different colors (specific doors, platforms and so on)
 - [ ] Maximum number of elements active ~~or of the same color~~ at the same time?
-- [ ] Levels with many characters (Lemmings' style)
+- [ ] **Levels with many characters (Lemmings' style)**
 - [ ] Difficult combinations of buttons to press (Twister-style)?
-- [ ] Elements that activate and deactivate any time any other this is activated or deactivated
+- [ ] Elements that activate and deactivate any time any other thing is activated or deactivated
