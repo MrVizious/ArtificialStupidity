@@ -34,20 +34,20 @@ public class StickmanController : MonoBehaviour
     void OnCollisionStay2D(Collision2D collisionInfo)
     {
         //Ground check
-        if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("Player")) grounded = true;
+        if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("StickMan")) grounded = true;
         //Debug.Log("Collider de objeto: " + collisionInfo.otherCollider.gameObject.tag + " contra collider de tag: " + collisionInfo.gameObject.tag);
     }
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
         //Ground check
-        if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("Player")) grounded = true;
+        if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("StickMan")) grounded = true;
         //Debug.Log("Collider de objeto: " + collisionInfo.otherCollider.gameObject.tag + " contra collider de tag: " + collisionInfo.gameObject.tag);
     }
 
     void OnCollisionExit2D(Collision2D collisionInfo){
         //Ground check
-        if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("Player")) grounded = false;
+        if(collisionInfo.gameObject.tag.Equals("Ground") && collisionInfo.otherCollider.gameObject.tag.Equals("StickMan")) grounded = false;
     }
 
     //Checks if the input for jump is pressed, and makes the character jump

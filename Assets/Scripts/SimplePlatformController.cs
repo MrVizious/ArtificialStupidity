@@ -7,36 +7,63 @@ public class SimplePlatformController : MonoBehaviour
 {
 
     private Collider2D platformCollider;
-
-    public string keyName;
+    private Collider2D stickManCheckCollider;
+    [SerializeField]
+    private int stickManCheck;
+    public string enableKeyName;
+    public string customKeyName;
     public bool startEnabled;
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        platformCollider = GetComponent<Collider2D>();
+        //Searches for both of the colliders, and assigns the trigger one to the stickManCheckCollider and the normal collider to the platformCollider
+        foreach(Collider2D col in GetComponents<Collider2D>()){
+            if(col.isTrigger){
+                stickManCheckCollider = col;
+            } else {
+                platformCollider = col;
+            }
+        }
         platformCollider.enabled = startEnabled;
+        stickManCheck = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (Input.GetKeyDown(keyName))
-        {
-            platformCollider.enabled = !platformCollider.enabled;
-            if(debugKeyPressed) Debug.Log(keyName + " key was pressed");
+        if (stickManCheck < 0 ) stickManCheck = 0;
+        if ((Input.GetKeyDown(enableKeyName) && Input.GetKey(customKeyName))
+            || (Input.GetKey(enableKeyName) && Input.GetKeyDown(customKeyName))){
+            if(platformCollider.enabled){
+                platformCollider.enabled = false;
+            } else {
+                if(stickManCheck == 0) platformCollider.enabled = true;
+            }
+            if(debugKeyPressed) Debug.Log(enableKeyName + " key was pressed and " + customKeyName + " too");
             if(debugActivation) Debug.Log("Is the platform enabled? : " + platformCollider.enabled);
         }
+
+
     }
 
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.tag.Equals("StickMan")) stickManCheck++;
+        if(debugCount) Debug.Log("TriggerEnter: " + stickManCheck);
+    }
 
+    void OnTriggerExit2D(Collider2D other){
+        if(other.tag.Equals("StickMan")) stickManCheck--;
+        if(debugCount) Debug.Log("TriggerExit: " + stickManCheck);
+    }
 
     /***************************************************************************
      *                               DEBUGGING                                 *
-     **************************************************************************/
+     ***************************************************************************/
 
     public bool debugKeyPressed;
     public bool debugActivation;
+    public bool debugCount;
 
 }

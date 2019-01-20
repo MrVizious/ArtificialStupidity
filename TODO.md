@@ -4,8 +4,9 @@ In this document I will be adding whatever I know I have to do, and I will try t
 #### Programming Quality
 - [ ] GameController Singleton
 - [ ] LevelController Singleton per level
-- [x] Normal ground Prefab
+- [ ] Normal ground Prefab **Has to be improved now**
 - [ ] Sonarqube integration for better code quality
+- [x] Create a way for platforms not to activate if the character is close to hitting them, but allow to deactivate
 
 #### Movement System
 - [x] Jump
@@ -20,15 +21,14 @@ In this document I will be adding whatever I know I have to do, and I will try t
 
 #### Input Recreating
 - [x] Jump
-- [x] Horizontal Movement
-- https://docs.microsoft.com/en-us/dotnet/api/system.io.file?redirectedfrom=MSDN&view=netframework-4.7.2
+- [x] Horizontal Movement https://docs.microsoft.com/en-us/dotnet/api/system.io.file?redirectedfrom=MSDN&view=netframework-4.7.2
 
 #### Gameplay Mechanics
 - [ ] Spawning
 - [ ] Despawning / Getting to the door
 - [x] Activate element
 - [x] Deactivate element
-- [ ] Require two buttons to be pressed when activating (i.e. W for selecting the platform and SPACE for activating it) https://answers.unity.com/questions/553618/how-can-i-use-multiple-getbuttondown-keys-simultan.html
+- [x] Require two buttons to be pressed when activating (i.e. W for selecting the platform and SPACE for activating it) https://answers.unity.com/questions/553618/how-can-i-use-multiple-getbuttondown-keys-simultan.html
 
 #### Gameplay Elements
 - [ ] Enter gates
