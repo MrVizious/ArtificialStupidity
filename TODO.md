@@ -6,6 +6,7 @@ In this document I will be adding whatever I know I have to do, and I will try t
 - [ ] LevelController Singleton per level
 - [ ] Normal ground Prefab **Has to be improved now**
 - [ ] Sonarqube integration for better code quality
+- [ ] Nodes or gizmos for the prefabs of moving platforms
 
 #### Gameplay Quality
 - [x] Create a way for platforms not to activate if the character is close to hitting them, but allow to deactivate
@@ -16,6 +17,7 @@ In this document I will be adding whatever I know I have to do, and I will try t
 - [x] Horizontal Movement
 - [x] Ground check
 - [ ] Check why the RigidBody2D feels so slippery
+- [ ] Move with platform while on top of it https://answers.unity.com/questions/12083/how-to-get-a-character-to-move-with-a-moving-platf.html
 
 #### Input Recording
 - [x] Jump
@@ -37,8 +39,8 @@ In this document I will be adding whatever I know I have to do, and I will try t
 - [ ] Enter gates
 - [ ] Exit gates
 - [x] Platform that activates and deactivates
-- [ ] Platform that moves in a certain pattern (See native Unity behaviour for this) when activated
-- [ ] Platform that moves one direction when pressing a button and moves the other when pressing other
+- [ ] Platform that moves in a certain pattern (See native Unity behaviour for this) when activated https://docs.unity3d.com/ScriptReference/Vector2.MoveTowards.html
+- [ ] Platform that moves one direction when pressing a button and moves the other when pressing other https://docs.unity3d.com/ScriptReference/Vector2.MoveTowards.html
 
 #### Levels
 - [ ] Automatic win level
