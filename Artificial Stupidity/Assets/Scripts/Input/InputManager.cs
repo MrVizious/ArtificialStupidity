@@ -4,14 +4,21 @@ using UnityEngine;
 
 public abstract class InputManager : MonoBehaviour
 {
+    public bool debug = false;
     public Dictionary<KeyCode, bool> keyCodesDown;
     public bool jumpButtonDown = false;
     public int horizontalInput = 0;
 
     public void AddKeyCode(KeyCode newKey)
     {
+        if (keyCodesDown == null)
+        {
+            if (debug) Debug.Log("KeyCodesDown was not initiated, creating it...");
+            keyCodesDown = new Dictionary<KeyCode, bool>();
+        }
         if (!keyCodesDown.ContainsKey(newKey))
         {
+            if (debug) Debug.Log("Adding key " + newKey.ToString() + " to KeyCodeDown");
             keyCodesDown.Add(newKey, false);
         }
     }
@@ -30,9 +37,10 @@ public abstract class InputManager : MonoBehaviour
 
     protected void UpdateKeyCodesDown()
     {
-        foreach (KeyValuePair<KeyCode, bool> pair in keyCodesDown)
+        List<KeyCode> keycodes = new List<KeyCode>(keyCodesDown.Keys);
+        foreach (KeyCode key in keycodes)
         {
-            keyCodesDown[pair.Key] = Input.GetKeyDown(pair.Key);
+            keyCodesDown[key] = Input.GetKeyDown(key);
         }
     }
 }

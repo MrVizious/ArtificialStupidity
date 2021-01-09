@@ -11,8 +11,7 @@ public class AIInputRecorder : InputManager
         RunBackward,
         StopRunning
     }
-    public bool debug, recording;
-    public KeyCode recordKey;
+    public bool recording;
     public string recordingName;
 
 
@@ -27,6 +26,7 @@ public class AIInputRecorder : InputManager
 
     void Update()
     {
+        UpdateKeyCodesDown();
         if (recording)
         {
             currentRecordingTime += Time.deltaTime;
@@ -36,6 +36,7 @@ public class AIInputRecorder : InputManager
             }
             else if (UpdateHorizontalInput() != lastHorizontalInput)
             {
+                lastHorizontalInput = horizontalInput;
                 if (horizontalInput > 0) RecordAction(AIAction.RunForward, currentRecordingTime);
                 else if (horizontalInput < 0) RecordAction(AIAction.RunBackward, currentRecordingTime);
                 else RecordAction(AIAction.StopRunning, currentRecordingTime);
