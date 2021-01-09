@@ -53,7 +53,7 @@ public class AIInputRecorder : InputManager
     {
         if (!recording)
         {
-            if (debug) Debug.Log("Started recording called: " + recordingName);
+            if (debug) Debug.Log("STARTED recording called: " + recordingName);
             currentRecordingTime = 0f;
             CreateScriptableObject();
             recording = true;
@@ -77,12 +77,18 @@ public class AIInputRecorder : InputManager
 
         recordingObject.actions = actions;
 
-        string path = "Assets/Recordings/" + recordingName;
+        string path = "Assets/Recordings/" + recordingName + ".asset";
         AssetDatabase.CreateAsset(recordingObject, path);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        EditorUtility.FocusProjectWindow();
-        Selection.activeObject = recordingObject;
+
+        if (debug)
+        {
+            foreach (KeyValuePair<AIAction, float> pair in recordingObject.actions)
+            {
+                Debug.Log(pair.Key + " at " + pair.Value);
+            }
+        }
     }
 
     private void RecordAction(AIAction newAction, float time)
