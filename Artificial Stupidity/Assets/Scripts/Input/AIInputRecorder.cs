@@ -5,22 +5,22 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 
 
-public class AIInputRecorder : InputManager
+public class AIInputRecorder : MonoBehaviour
 {
+    public bool debug = false;
     public string recordingName;
 
-    [SerializeField]
     private bool recording;
-
+    private InputManager input;
     private List<KeyValuePair<AIAction, float>> actions;
     private AIInputsRecording recordingObject;
 
     private float lastHorizontalInput = 0;
     private float currentRecordingTime = 0f;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
+        input = GetComponent<InputManager>();
         actions = new List<KeyValuePair<AIAction, float>>();
         if (recordingName == null || recordingName == "")
         {
@@ -32,19 +32,18 @@ public class AIInputRecorder : InputManager
 
     void Update()
     {
-        UpdateKeyCodesDown();
         if (recording)
         {
             currentRecordingTime += Time.deltaTime;
-            if (UpdateJumpButtonDown())
+            if (input.jumpButtonDown)
             {
                 RecordAction(AIAction.Jump, currentRecordingTime);
             }
-            else if (UpdateHorizontalInput() != lastHorizontalInput)
+            else if (input.horizontalInput != lastHorizontalInput)
             {
-                lastHorizontalInput = horizontalInput;
-                if (horizontalInput > 0) RecordAction(AIAction.RunForward, currentRecordingTime);
-                else if (horizontalInput < 0) RecordAction(AIAction.RunBackward, currentRecordingTime);
+                lastHorizontalInput = input.horizontalInput;
+                if (input.horizontalInput > 0) RecordAction(AIAction.RunForward, currentRecordingTime);
+                else if (input.horizontalInput < 0) RecordAction(AIAction.RunBackward, currentRecordingTime);
                 else RecordAction(AIAction.StopRunning, currentRecordingTime);
             }
         }
@@ -56,7 +55,7 @@ public class AIInputRecorder : InputManager
         {
             if (debug) Debug.Log("STARTED recording called: " + recordingName);
             currentRecordingTime = 0f;
-            CreateScriptableObject();
+            InitializeScriptableObject();
             recording = true;
         }
         else
@@ -67,7 +66,7 @@ public class AIInputRecorder : InputManager
         }
     }
 
-    private void CreateScriptableObject()
+    private void InitializeScriptableObject()
     {
         recordingObject = ScriptableObject.CreateInstance<AIInputsRecording>();
     }
