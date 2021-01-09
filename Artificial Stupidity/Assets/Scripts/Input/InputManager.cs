@@ -12,13 +12,13 @@ public abstract class InputManager : MonoBehaviour
     [HideInInspector]
     public int horizontalInput = 0;
 
+    protected virtual void Start()
+    {
+        keyCodesDown = new Dictionary<KeyCode, bool>();
+
+    }
     public void AddKeyCode(KeyCode newKey)
     {
-        if (keyCodesDown == null)
-        {
-            if (debug) Debug.Log("KeyCodesDown was not initiated, creating it...");
-            keyCodesDown = new Dictionary<KeyCode, bool>();
-        }
         if (!keyCodesDown.ContainsKey(newKey))
         {
             if (debug) Debug.Log("Adding key " + newKey.ToString() + " to KeyCodeDown");

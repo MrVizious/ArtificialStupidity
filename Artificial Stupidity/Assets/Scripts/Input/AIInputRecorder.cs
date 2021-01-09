@@ -18,8 +18,9 @@ public class AIInputRecorder : InputManager
     private float lastHorizontalInput = 0;
     private float currentRecordingTime = 0f;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         actions = new List<KeyValuePair<AIAction, float>>();
         if (recordingName == null || recordingName == "")
         {
