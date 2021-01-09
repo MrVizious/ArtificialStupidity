@@ -267,8 +267,8 @@ MonoBehaviour:
   debug: 1
   jumpButtonDown: 0
   horizontalInput: 0
+  recordingName: 
   recording: 0
-  recordingName: TestRecording
 --- !u!4 &683251787
 Transform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,10 @@ public abstract class InputManager : MonoBehaviour
 {
     public bool debug = false;
     public Dictionary<KeyCode, bool> keyCodesDown;
+
+    [HideInInspector]
     public bool jumpButtonDown = false;
+    [HideInInspector]
     public int horizontalInput = 0;
 
     public void AddKeyCode(KeyCode newKey)

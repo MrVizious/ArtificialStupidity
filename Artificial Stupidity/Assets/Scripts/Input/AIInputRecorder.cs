@@ -1,27 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.SceneManagement;
+
 
 public class AIInputRecorder : InputManager
 {
-    public enum AIAction
-    {
-        Jump,
-        RunForward,
-        RunBackward,
-        StopRunning
-    }
-    public bool recording;
     public string recordingName;
 
+    [SerializeField]
+    private bool recording;
 
     private List<KeyValuePair<AIAction, float>> actions;
+    private AIInputsRecording recordingObject;
+
     private float lastHorizontalInput = 0;
     private float currentRecordingTime = 0f;
 
     void Start()
     {
         actions = new List<KeyValuePair<AIAction, float>>();
+        if (recordingName == null || recordingName == "")
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (debug) Debug.Log("Name for recording changed to " + sceneName);
+            recordingName = sceneName;
+        }
     }
 
     void Update()
@@ -50,20 +55,34 @@ public class AIInputRecorder : InputManager
         {
             if (debug) Debug.Log("Started recording called: " + recordingName);
             currentRecordingTime = 0f;
+            CreateScriptableObject();
             recording = true;
         }
         else
         {
             if (debug) Debug.Log("STOPPED recording called: " + recordingName);
-            WriteRecordingToCSV();
+            WriteToScriptableObjectFile();
             recording = false;
         }
     }
 
-    private void WriteRecordingToCSV()
+    private void CreateScriptableObject()
     {
-        if (debug) Debug.Log("Writing recording with name " + recordingName + " to CSV");
-        //TODO: Record to CSV
+        recordingObject = ScriptableObject.CreateInstance<AIInputsRecording>();
+    }
+
+    private void WriteToScriptableObjectFile()
+    {
+        if (debug) Debug.Log("Writing recording with name " + recordingName + " to scriptable object");
+
+        recordingObject.actions = actions;
+
+        string path = "Assets/Recordings/" + recordingName;
+        AssetDatabase.CreateAsset(recordingObject, path);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = recordingObject;
     }
 
     private void RecordAction(AIAction newAction, float time)
