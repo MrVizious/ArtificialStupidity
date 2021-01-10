@@ -7,6 +7,6 @@ public class PlayerInputManager : InputManager
     private void Update()
     {
         // Only updates the specific keys needed
-        UpdateKeyCodesDown();
+        UpdateKeyCodesUpAndDown();
     }
 }

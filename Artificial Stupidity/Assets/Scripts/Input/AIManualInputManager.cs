@@ -13,6 +13,6 @@ public class AIManualInputManager : InputManager
         UpdateJumpButtonDown();
 
         // For starting and stopping recording
-        UpdateKeyCodesDown();
+        UpdateKeyCodesUpAndDown();
     }
 }

@@ -7,7 +7,8 @@ public class Button : MonoBehaviour
 {
     public bool debug = false;
     public KeyCode key;
-    public UnityEvent onButtonPressed;
+    public UnityEvent onButtonDown;
+    public UnityEvent onButtonUp;
 
     private InputManager input;
 
@@ -22,7 +23,14 @@ public class Button : MonoBehaviour
         if (input.keyCodesDown[key])
         {
             if (debug) Debug.Log("Key " + key.ToString() + " pressed");
-            onButtonPressed.Invoke();
+            onButtonDown.Invoke();
         }
+        else
+        if (input.keyCodesUp[key])
+        {
+            if (debug) Debug.Log("Key " + key.ToString() + " released");
+            onButtonUp.Invoke();
+        }
+
     }
 }

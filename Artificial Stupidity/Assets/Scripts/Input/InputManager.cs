@@ -9,6 +9,8 @@ public abstract class InputManager : MonoBehaviour
 
     // Keeps which of the requested keys have been pressed down
     public Dictionary<KeyCode, bool> keyCodesDown;
+    // Keeps which of the requested keys have been pressed up
+    public Dictionary<KeyCode, bool> keyCodesUp;
 
     [HideInInspector]
     // True is the jump button was pressed this frame
@@ -28,6 +30,11 @@ public abstract class InputManager : MonoBehaviour
         {
             if (debug) Debug.Log("KeyCodesDown was not initialized, doing now");
             keyCodesDown = new Dictionary<KeyCode, bool>();
+        }
+        if (keyCodesUp == null)
+        {
+            if (debug) Debug.Log("KeyCodesUp was not initialized, doing now");
+            keyCodesUp = new Dictionary<KeyCode, bool>();
         }
         // Checks that it doesn't already exist in the of keys list to keep track of
         if (!keyCodesDown.ContainsKey(newKey))
@@ -61,19 +68,25 @@ public abstract class InputManager : MonoBehaviour
 
     /// <summary>
     /// Updates the bool values of the keys that are being kept track of. If 
-    /// the key was pressed in that frame, it is true, if not, it is false
+    /// the key was pressed or released in that frame, it is true, if not, it is false
     /// </summary>
-    protected void UpdateKeyCodesDown()
+    protected void UpdateKeyCodesUpAndDown()
     {
         if (keyCodesDown == null)
         {
             if (debug) Debug.Log("KeyCodesDown was not initialized, doing now");
             keyCodesDown = new Dictionary<KeyCode, bool>();
         }
+        if (keyCodesUp == null)
+        {
+            if (debug) Debug.Log("KeyCodesUp was not initialized, doing now");
+            keyCodesUp = new Dictionary<KeyCode, bool>();
+        }
         List<KeyCode> keycodes = new List<KeyCode>(keyCodesDown.Keys);
         foreach (KeyCode key in keycodes)
         {
             keyCodesDown[key] = Input.GetKeyDown(key);
+            keyCodesUp[key] = Input.GetKeyUp(key);
         }
     }
 }

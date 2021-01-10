@@ -16,7 +16,7 @@ public class AIAutomaticInputManager : InputManager
 
     private void Update()
     {
-        UpdateKeyCodesDown();
+        UpdateKeyCodesUpAndDown();
 
         if (playing)
         {
