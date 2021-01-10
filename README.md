@@ -19,3 +19,6 @@ Son funcionales y lo único que hay que hacer es arrastrar sus scripts desde su 
 
 ## Input
 Se utiliza una clase InputManager de la cual deriva el resto según su función, y solo actualizan los datos necesarios. De la misma manera, en cada nivel hay un GameObject PlayerInput que alberga un InputManager concreto para usuarios y que sirve para que los scripts button que se le asocien puedan saber cuándo se ha pulsado. Estos script Button tienen un evento onButtonDown y uno onButtonUp que se deben apuntar tanto a la plataforma que se desee como a su gráfico de qué tecla es y que así haya input no solo mecánico sino visual.
+
+# Vídeo
+El vídeo de demostración se halla en la carpeta Video. Es algo largo pero es debido a que el juego tiene mucha naraación y las mecánicas no se ven hasta casi pasados los dos minutos.
