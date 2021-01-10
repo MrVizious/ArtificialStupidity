@@ -6,6 +6,12 @@ public class FixedDurationActivation : ActivationMethod
 {
     public float secondsOfDuration;
     private IEnumerator fixedDurationCoroutine;
+
+    protected override void Start()
+    {
+        base.Start();
+        ChangeButtonColor(new Color(0.15f, 0.55f, 0.55f, 1f));
+    }
     public override void OnButtonDown()
     {
         if (fixedDurationCoroutine == null)

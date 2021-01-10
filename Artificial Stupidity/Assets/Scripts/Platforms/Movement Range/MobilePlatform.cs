@@ -16,7 +16,7 @@ public class MobilePlatform : Platform
         base.Start();
         ChangeColor(new Color(0.15f, 0.55f, 0.15f, 1.0f));
         distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
-
+        transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
     }
     private void Update()
     {
