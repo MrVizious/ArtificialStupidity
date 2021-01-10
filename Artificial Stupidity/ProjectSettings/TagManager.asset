@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - AI
+  - Music
   layers:
   - Default
   - TransparentFX
