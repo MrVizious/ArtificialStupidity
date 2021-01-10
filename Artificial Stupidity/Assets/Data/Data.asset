@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   levels:
-  - listened: 1
+  - listened: 0
     audio: {fileID: 8300000, guid: 954df1aa4a07a67ef9bad5686c5bfac7, type: 3}
-  - listened: 1
+  - listened: 0
     audio: {fileID: 8300000, guid: 5977a958413d17bc6b29983527b2849f, type: 3}
   - listened: 0
     audio: {fileID: 8300000, guid: 98baa326e12e582a4980a8bb4e934517, type: 3}

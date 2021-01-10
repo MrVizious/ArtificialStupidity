@@ -18,9 +18,4 @@ public class LevelsData : ScriptableObject
     }
 
     public List<LevelData> levels;
-
-    private void Awake()
-    {
-        levels = new List<LevelData>();
-    }
 }

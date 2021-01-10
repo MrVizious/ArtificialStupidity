@@ -11061,6 +11061,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6538851667842150892, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
+      propertyPath: levelsData
+      value: 
+      objectReference: {fileID: 11400000, guid: 91a62a65c329d386b8a2c39ce0ca98b3, type: 2}
     - target: {fileID: 6538851667842150893, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3864218
@@ -11109,5 +11113,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6968505403563849405, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 308a84d7ddc1d3e9882baa2b62f930ce, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
