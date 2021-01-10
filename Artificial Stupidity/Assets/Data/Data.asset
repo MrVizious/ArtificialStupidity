@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   levels:
-  - listened: 0
+  - listened: 1
     audio: {fileID: 8300000, guid: 954df1aa4a07a67ef9bad5686c5bfac7, type: 3}
-  - listened: 0
+  - listened: 1
     audio: {fileID: 8300000, guid: 5977a958413d17bc6b29983527b2849f, type: 3}
   - listened: 0
     audio: {fileID: 8300000, guid: 98baa326e12e582a4980a8bb4e934517, type: 3}
   - listened: 0
     audio: {fileID: 8300000, guid: 81aac7532c1d0136881da92b6af9899a, type: 3}
-  - listened: 1
+  - listened: 0
     audio: {fileID: 8300000, guid: a15247935eca2063ca50ae4f3fcbcc47, type: 3}
-  - listened: 1
+  - listened: 0
     audio: {fileID: 8300000, guid: cdc87c28d483484e1bfac73066295423, type: 3}
-  - listened: 1
+  - listened: 0
     audio: {fileID: 8300000, guid: b47c0a6f047f4b5d49631f93b9f0b3fb, type: 3}
-  - listened: 1
+  - listened: 0
     audio: {fileID: 8300000, guid: 308a84d7ddc1d3e9882baa2b62f930ce, type: 3}
