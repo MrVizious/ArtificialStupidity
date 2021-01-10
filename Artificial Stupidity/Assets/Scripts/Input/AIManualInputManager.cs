@@ -6,8 +6,13 @@ public class AIManualInputManager : InputManager
 {
     private void Update()
     {
-        // Only updates horizontal input and jump button
+        // Updates everything
+
+        // For manual movement
         UpdateHorizontalInput();
         UpdateJumpButtonDown();
+
+        // For starting and stopping recording
+        UpdateKeyCodesDown();
     }
 }

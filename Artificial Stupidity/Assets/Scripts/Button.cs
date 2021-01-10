@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Button : MonoBehaviour
 {
+    public bool debug = false;
     public KeyCode key;
     public UnityEvent onButtonPressed;
 
@@ -20,6 +21,7 @@ public class Button : MonoBehaviour
     {
         if (input.keyCodesDown[key])
         {
+            if (debug) Debug.Log("Key " + key.ToString() + " pressed");
             onButtonPressed.Invoke();
         }
     }

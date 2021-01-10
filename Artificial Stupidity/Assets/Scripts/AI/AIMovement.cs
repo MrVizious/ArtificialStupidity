@@ -15,17 +15,22 @@ public class AIMovement : MonoBehaviour
     public ControlMode controlMode;
     public float horizontalSpeed = 3f;
     public float jumpSpeed = 5f;
-    public float groundCheckDistance = 0.1f;
+    public float groundCheckDistance = 0.15f;
     public LayerMask groundLayerMask;
 
 
     private InputManager input;
     private Rigidbody2D rb;
+    [SerializeField]
     private bool grounded = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // In case the layermask is not set, Gorund is a good default
+        if (groundLayerMask == 0) groundLayerMask = 1 << LayerMask.NameToLayer("Ground");
+
 
         // Change where to get the input from
         switch (controlMode)
@@ -59,20 +64,13 @@ public class AIMovement : MonoBehaviour
     private void Update()
     {
         UpdateGrounded();
-        switch (controlMode)
-        {
-            case ControlMode.Automatic:
-                break;
-            case ControlMode.Manual:
-                UpdateManual();
-                break;
-        }
+        Move();
     }
 
     /// <summary>
-    /// Update for manual movement. Jumps and moves horizontally
+    /// Updates movement. Jumps and moves horizontally
     /// </summary>
-    private void UpdateManual()
+    private void Move()
     {
         // Only jump if touching ground
         if (grounded && input.jumpButtonDown)

@@ -5,14 +5,16 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 
 
+[RequireComponent(typeof(Button))]
 public class AIInputRecorder : MonoBehaviour
 {
     public bool debug = false;
     public string recordingName;
 
-    private bool recording;
+    [SerializeField]
+    private bool recording = false;
     private InputManager input;
-    private List<KeyValuePair<AIAction, float>> actions;
+    private List<ActionPair> actions;
     private AIInputsRecording recordingObject;
 
     private float lastHorizontalInput = 0;
@@ -21,7 +23,7 @@ public class AIInputRecorder : MonoBehaviour
     private void Start()
     {
         input = GetComponent<InputManager>();
-        actions = new List<KeyValuePair<AIAction, float>>();
+        actions = new List<ActionPair>();
         if (recordingName == null || recordingName == "")
         {
             string sceneName = SceneManager.GetActiveScene().name;
@@ -75,28 +77,27 @@ public class AIInputRecorder : MonoBehaviour
     {
         if (debug) Debug.Log("Writing recording with name " + recordingName + " to scriptable object");
 
-        recordingObject.actions = actions;
+        recordingObject.actions = new List<AIAction>();
+        recordingObject.times = new List<float>();
+        foreach (ActionPair pair in actions)
+        {
+            recordingObject.actions.Add(pair.action);
+            recordingObject.times.Add(pair.time);
+        }
+        if (debug) Debug.Log("Number of data in " + recordingName +
+         " " + recordingObject.actions.Count);
 
         string path = "Assets/Recordings/" + recordingName + ".asset";
         AssetDatabase.CreateAsset(recordingObject, path);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-
-        if (debug)
-        {
-            foreach (KeyValuePair<AIAction, float> pair in recordingObject.actions)
-            {
-                Debug.Log(pair.Key + " at " + pair.Value);
-            }
-        }
     }
 
     private void RecordAction(AIAction newAction, float time)
     {
         if (debug) Debug.Log(newAction.ToString() + " recorded at: " + time + " seconds");
         actions.Add(
-            new KeyValuePair<AIAction, float>
-            (newAction, time)
+            new ActionPair(newAction, time)
         );
     }
 }

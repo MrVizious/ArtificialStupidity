@@ -9,8 +9,18 @@ public enum AIAction
     RunBackward,
     StopRunning
 }
+public struct ActionPair
+{
+    public AIAction action;
+    public float time;
+    public ActionPair(AIAction newAction, float newTime)
+    {
+        action = newAction;
+        time = newTime;
+    }
+}
 public class AIInputsRecording : ScriptableObject
 {
-    public List<KeyValuePair<AIAction, float>> actions;
-
+    public List<AIAction> actions;
+    public List<float> times;
 }
