@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Platform))]
 public abstract class ActivationMethod : MonoBehaviour
 {
     protected Platform platform;
