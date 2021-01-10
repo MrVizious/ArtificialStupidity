@@ -7,14 +7,14 @@ public class AIAnimation : MonoBehaviour
     private Animator animator;
     private InputManager input;
     private AIMovement movement;
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         input = GetComponent<InputManager>();
         movement = GetComponent<AIMovement>();
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -22,12 +22,12 @@ public class AIAnimation : MonoBehaviour
         animator.SetFloat("HorizontalInput", input.horizontalInput);
         if (input.horizontalInput > 0f)
         {
-            renderer.flipX = false;
+            spriteRenderer.flipX = false;
         }
         else if (input.horizontalInput < 0f)
         {
 
-            renderer.flipX = true;
+            spriteRenderer.flipX = true;
         }
 
     }

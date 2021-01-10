@@ -43,6 +43,13 @@ public abstract class InputManager : MonoBehaviour
             if (debug) Debug.Log("Adding key " + newKey.ToString() + " to KeyCodeDown");
             keyCodesDown.Add(newKey, false);
         }
+        // Checks that it doesn't already exist in the of keys list to keep track of
+        if (!keyCodesUp.ContainsKey(newKey))
+        {
+            // If it isn't tracked, the key is added and set to false
+            if (debug) Debug.Log("Adding key " + newKey.ToString() + " to KeyCodeUp");
+            keyCodesUp.Add(newKey, false);
+        }
     }
 
     /// <summary>
