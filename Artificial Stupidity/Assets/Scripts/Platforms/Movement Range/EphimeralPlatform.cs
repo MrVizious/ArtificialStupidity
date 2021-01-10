@@ -1,21 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class EphimeralPlatform : Platform
 {
     private Collider2D col;
-    private SpriteRenderer spriteRenderer;
     private Bounds bounds;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         col = GetComponent<Collider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         col.enabled = true;
         bounds = col.bounds;
+
+        ChangeColor(new Color(40, 40, 140));
 
         UpdatePlatform();
     }

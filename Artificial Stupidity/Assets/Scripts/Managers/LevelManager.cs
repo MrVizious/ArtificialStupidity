@@ -11,7 +11,6 @@ public class LevelManager : MonoBehaviour
     {
         AI = GameObject.Find("AutomaticAI");
         if (AI == null) AI = GameObject.Find("RecordingAI");
-        StartLevel();
     }
 
     public static void ReloadLevel()
@@ -24,8 +23,4 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void StartLevel()
-    {
-
-    }
 }

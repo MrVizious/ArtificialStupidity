@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour
@@ -9,10 +7,10 @@ public class UIButton : MonoBehaviour
 
     public string customText;
     public Text text;
-    public float inactiveOpacity = 0.6f;
+    public float activeOpacity = 0.6f;
 
 
-    private Image image;
+    public Image image;
 
     private void Start()
     {
@@ -27,24 +25,24 @@ public class UIButton : MonoBehaviour
     public void Activate()
     {
         Color tempColor = image.color;
-        tempColor.a = 1f;
+        tempColor.a = activeOpacity;
         image.color = tempColor;
         image.sprite = active;
 
         tempColor = text.color;
-        tempColor.a = 1f;
+        tempColor.a = activeOpacity;
         text.color = tempColor;
     }
 
     public void Deactivate()
     {
         Color tempColor = image.color;
-        tempColor.a = inactiveOpacity;
+        tempColor.a = 1f;
         image.color = tempColor;
         image.sprite = inactive;
 
         tempColor = text.color;
-        tempColor.a = inactiveOpacity;
+        tempColor.a = 1f;
         text.color = tempColor;
     }
 }

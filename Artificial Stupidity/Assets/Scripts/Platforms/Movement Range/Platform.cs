@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public abstract class Platform : MonoBehaviour
 {
+    public bool debug = false;
+
     [SerializeField]
     protected bool active;
+    protected SpriteRenderer spriteRenderer;
+
+    protected virtual void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     public bool isActive()
     {
         return active;
@@ -27,4 +36,8 @@ public abstract class Platform : MonoBehaviour
     /// </summary>
     public abstract void Deactivate();
 
+    protected void ChangeColor(Color newColor)
+    {
+        spriteRenderer.color = newColor;
+    }
 }

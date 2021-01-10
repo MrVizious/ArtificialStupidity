@@ -9,6 +9,10 @@ public class MobilePlatform : Platform
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 3f;
     private float distanceTravelled = 0f;
+    protected override void Start()
+    {
+        ChangeColor(new Color(40, 140, 40));
+    }
     private void Update()
     {
         if (active)
