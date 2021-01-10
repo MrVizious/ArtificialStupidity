@@ -21,8 +21,7 @@ public class AIMovement : MonoBehaviour
 
     private InputManager input;
     private Rigidbody2D rb;
-    [SerializeField]
-    private bool grounded = false;
+    public bool grounded = false;
 
     private void Start()
     {
