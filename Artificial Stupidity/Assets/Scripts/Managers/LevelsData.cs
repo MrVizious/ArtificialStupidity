@@ -8,7 +8,13 @@ public class LevelsData : ScriptableObject
     [System.Serializable]
     public struct LevelData
     {
-        public bool started;
+        public bool listened;
+        public AudioClip audio;
+        public LevelData(bool newListened, AudioClip newAudio)
+        {
+            listened = newListened;
+            audio = newAudio;
+        }
     }
 
     public List<LevelData> levels;
