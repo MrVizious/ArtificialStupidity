@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 2060376166829543065}
   m_Layer: 0
   m_Name: RecordingAI
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  controlMode: 0
-  horizontalSpeed: 3
+  controlMode: 1
+  horizontalSpeed: 5
   jumpSpeed: 15
   groundCheckDistance: 1.5
   groundLayerMask:
