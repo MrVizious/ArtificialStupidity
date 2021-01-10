@@ -38,7 +38,9 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextIndex > 8) nextIndex = 0;
+        SceneManager.LoadScene(nextIndex);
     }
 
     private void PlayAudio(AudioClip clip)
