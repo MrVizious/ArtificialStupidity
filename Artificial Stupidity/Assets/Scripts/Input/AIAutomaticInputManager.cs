@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEditor;
+﻿using UnityEngine;
 
 public class AIAutomaticInputManager : InputManager
 {
@@ -89,6 +85,7 @@ public class AIAutomaticInputManager : InputManager
         else
         {
             if (debug) Debug.Log("No action left!");
+            LevelManager.ReloadLevel();
         }
     }
 }

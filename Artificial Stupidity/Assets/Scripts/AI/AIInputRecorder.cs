@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if (UNITY_EDITOR) 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -87,7 +88,7 @@ public class AIInputRecorder : MonoBehaviour
         if (debug) Debug.Log("Number of data in " + recordingName +
          " " + recordingObject.actions.Count);
 
-        string path = "Assets/Recordings/" + recordingName + ".asset";
+        string path = "Assets/Recordings/AI/" + recordingName + ".asset";
         AssetDatabase.CreateAsset(recordingObject, path);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
@@ -101,3 +102,5 @@ public class AIInputRecorder : MonoBehaviour
         );
     }
 }
+
+#endif
