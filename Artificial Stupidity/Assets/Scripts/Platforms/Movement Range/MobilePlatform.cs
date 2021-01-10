@@ -7,11 +7,16 @@ public class MobilePlatform : Platform
 {
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
+    [Range(0f, 1f)]
+    public float startPercentage = 0f;
     public float speed = 3f;
     private float distanceTravelled = 0f;
     protected override void Start()
     {
-        ChangeColor(new Color(40, 140, 40));
+        base.Start();
+        ChangeColor(new Color(0.15f, 0.55f, 0.15f, 1.0f));
+        distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
+
     }
     private void Update()
     {

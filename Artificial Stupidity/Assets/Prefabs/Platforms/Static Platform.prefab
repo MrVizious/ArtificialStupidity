@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8831089178096741652}
   - component: {fileID: 8831089178096741653}
   - component: {fileID: 8831089178096741650}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Button Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8831089178870636733}
   - component: {fileID: 8831089178870636730}
   - component: {fileID: 8831089178870636731}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Button Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
   inactive: {fileID: -5549316410726591827, guid: 72bc6a47320fb8b53868d3f1c6e4c567, type: 3}
   customText: Q
   text: {fileID: 8831089179118872789}
-  inactiveOpacity: 0.6
+  activeOpacity: 0.6
   image: {fileID: 0}
 --- !u!1 &8831089179118872787
 GameObject:
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 8831089179118872786}
   - component: {fileID: 8831089179118872788}
   - component: {fileID: 8831089179118872789}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,8 +286,8 @@ GameObject:
   - component: {fileID: 8831089179853987854}
   - component: {fileID: 8831089179853987852}
   - component: {fileID: 8831089179853987855}
-  m_Layer: 0
-  m_Name: Thicc platform
+  m_Layer: 8
+  m_Name: Static Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

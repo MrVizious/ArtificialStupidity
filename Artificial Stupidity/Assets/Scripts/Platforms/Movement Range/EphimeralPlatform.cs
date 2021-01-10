@@ -16,8 +16,6 @@ public class EphimeralPlatform : Platform
         col.enabled = true;
         bounds = col.bounds;
 
-        ChangeColor(new Color(40, 40, 140));
-
         UpdatePlatform();
     }
     public override bool ToggleActive()
@@ -47,6 +45,7 @@ public class EphimeralPlatform : Platform
         Color tempColor = spriteRenderer.color;
         tempColor.a = active ? 1.0f : 0.6f;
         spriteRenderer.color = tempColor;
+        ChangeColor(new Color(0.15f, 0.15f, 0.55f, active ? 1.0f : 0.6f));
     }
 
     private bool CanActivate()
