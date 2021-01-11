@@ -61,10 +61,13 @@ public class AIAutomaticInputManager : InputManager
 
     public void StartPlayback()
     {
-        if (debug) Debug.Log("STARTING Playback!");
-        playing = true;
-        currentPairIndex = 0;
-        currentTime = 0f;
+        if (!playing)
+        {
+            if (debug) Debug.Log("STARTING Playback!");
+            playing = true;
+            currentPairIndex = 0;
+            currentTime = 0f;
+        }
     }
 
     public void StopPlayback()
