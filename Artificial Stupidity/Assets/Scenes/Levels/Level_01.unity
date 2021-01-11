@@ -11037,7 +11037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6538851667842150899, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6968505403563849405, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
       propertyPath: BypassEffects
@@ -11046,6 +11046,6 @@ PrefabInstance:
     - target: {fileID: 6968505403563849405, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 954df1aa4a07a67ef9bad5686c5bfac7, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d459bc0e8c05db1f89f9d0f70f096f06, type: 3}
